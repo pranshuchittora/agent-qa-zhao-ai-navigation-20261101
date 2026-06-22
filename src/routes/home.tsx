@@ -13,10 +13,10 @@ export default function Home() {
       <HeroSection />
 
       {/* 分类探索 */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1024px] mx-auto px-5">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-3">
+      <section className="py-20 md:py-28">
+        <div className="max-w-[1080px] mx-auto px-4 md:px-6">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-4">
               探索分类
             </h2>
             <p className="text-lg md:text-xl text-[#6e6e73]">
@@ -24,7 +24,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {categories.map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
@@ -36,10 +36,10 @@ export default function Home() {
       <FeaturedSection />
 
       {/* 热门工具 */}
-      <section className="py-16 md:py-24 bg-[#f5f5f7]">
-        <div className="max-w-[1024px] mx-auto px-5">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-3">
+      <section className="py-20 md:py-28 bg-[#f5f5f7]">
+        <div className="max-w-[1080px] mx-auto px-4 md:px-6">
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#1d1d1f] mb-4">
               热门工具
             </h2>
             <p className="text-lg md:text-xl text-[#6e6e73]">

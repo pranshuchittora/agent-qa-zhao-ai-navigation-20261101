@@ -36,25 +36,25 @@ export default function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Link
       to={`/category/${category.id}`}
-      className="group block bg-white border border-black/5 rounded-[var(--radius-lg)] p-6 card-hover hover:no-underline"
+      className="group block bg-white border border-black/[0.04] rounded-[var(--radius-lg)] p-7 card-hover hover:no-underline"
     >
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-5">
         <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center"
+          className="w-10 h-10 rounded-[10px] flex items-center justify-center"
           style={{ backgroundColor: `${category.color}15` }}
         >
-          <Icon size={24} color={category.color} strokeWidth={2} />
+          <Icon size={20} color={category.color} strokeWidth={2} />
         </div>
         <ArrowRight
           size={18}
-          className="text-[#86868b] transition-transform group-hover:translate-x-1 group-hover:text-[#1d1d1f]"
+          className="text-[#86868b] transition-all group-hover:translate-x-0.5 group-hover:text-[#1d1d1f]"
         />
       </div>
 
-      <h3 className="text-lg font-semibold text-[#1d1d1f] mb-1 tracking-tight">
+      <h3 className="text-[17px] font-semibold text-[#1d1d1f] mb-1.5 tracking-tight leading-snug">
         {category.name}
       </h3>
-      <p className="text-sm text-[#6e6e73] mb-3 line-clamp-2 leading-relaxed">
+      <p className="text-[14px] text-[#6e6e73] mb-4 line-clamp-2 leading-[1.43]">
         {category.description}
       </p>
       <p className="text-xs text-[#86868b] font-medium">

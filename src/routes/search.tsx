@@ -32,9 +32,9 @@ export default function SearchPage() {
   return (
     <div className="min-h-screen">
       {/* 搜索区 */}
-      <section className="bg-[#f5f5f7] py-12 md:py-16">
-        <div className="max-w-[744px] mx-auto px-5">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#1d1d1f] mb-6 text-center">
+      <section className="bg-[#f5f5f7] py-16 md:py-20">
+        <div className="max-w-[744px] mx-auto px-4 md:px-6">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#1d1d1f] mb-8">
             搜索 AI 工具
           </h1>
           <SearchBar
@@ -48,21 +48,21 @@ export default function SearchPage() {
       </section>
 
       {/* 搜索结果 */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-[1024px] mx-auto px-5">
+      <section className="py-16 md:py-20">
+        <div className="max-w-[1080px] mx-auto px-4 md:px-6">
           {debouncedQuery.trim() ? (
             <>
-              <p className="text-sm text-[#86868b] mb-6">
+              <p className="text-sm text-[#86868b] mb-8">
                 "{debouncedQuery}" 的搜索结果 · 共 {results.length} 个
               </p>
               {results.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
                   {results.map(({ tool }) => (
                     <ToolCard key={tool.id} tool={tool} />
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-20">
+                <div className="text-center py-24">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#f5f5f7] flex items-center justify-center">
                     <SearchIcon size={28} className="text-[#86868b]" />
                   </div>
@@ -82,7 +82,7 @@ export default function SearchPage() {
               )}
             </>
           ) : (
-            <div className="text-center py-20">
+            <div className="text-center py-24">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#f5f5f7] flex items-center justify-center">
                 <SearchIcon size={28} className="text-[#86868b]" />
               </div>

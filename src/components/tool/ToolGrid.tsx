@@ -14,15 +14,15 @@ export default function ToolGrid({
   className,
 }: ToolGridProps) {
   const colClasses = {
-    2: 'sm:grid-cols-2',
-    3: 'sm:grid-cols-2 lg:grid-cols-3',
-    4: 'sm:grid-cols-2 lg:grid-cols-4',
+    2: 'sm:grid-cols-2 gap-5 md:gap-6',
+    3: 'sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6',
+    4: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5',
   };
 
   return (
     <div
       className={cn(
-        'grid grid-cols-1 gap-5',
+        'grid grid-cols-1',
         colClasses[columns],
         className
       )}

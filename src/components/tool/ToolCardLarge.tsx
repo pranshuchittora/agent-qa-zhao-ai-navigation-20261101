@@ -24,12 +24,12 @@ export default function ToolCardLarge({
     <Link
       to={`/tool/${tool.id}`}
       className={cn(
-        'group relative block rounded-[var(--radius-xl)] p-8 md:p-12 overflow-hidden card-hover hover:no-underline',
+        'group relative block text-left rounded-[var(--radius-xl)] p-10 md:p-14 overflow-hidden card-hover hover:no-underline',
         isDark ? 'bg-[#1d1d1f] text-white' : 'bg-[#f5f5f7] text-[#1d1d1f]'
       )}
     >
       {/* 收藏按钮 */}
-      <div className="absolute top-5 right-5">
+      <div className="absolute top-6 right-6">
         <FavoriteButton
           isFavorited={isFavorited}
           onClick={() => toggleFavorite(tool.id)}
@@ -39,7 +39,7 @@ export default function ToolCardLarge({
       </div>
 
       {/* Logo */}
-      <div className="mb-6">
+      <div className="mb-7">
         <ToolLogo
           logo={tool.logo}
           background={tool.logoBackground}
@@ -48,14 +48,14 @@ export default function ToolCardLarge({
       </div>
 
       {/* 标题 */}
-      <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
+      <h3 className="text-3xl md:text-[40px] font-bold tracking-tight mb-3 leading-tight">
         {tool.name}
       </h3>
 
       {/* 标语 */}
       <p
         className={cn(
-          'text-lg md:text-xl mb-6 max-w-md',
+          'text-lg md:text-xl mb-8 max-w-md leading-relaxed',
           isDark ? 'text-[#a1a1a6]' : 'text-[#6e6e73]'
         )}
       >
@@ -65,7 +65,7 @@ export default function ToolCardLarge({
       {/* CTA */}
       <span
         className={cn(
-          'inline-flex items-center gap-1 text-base font-medium',
+          'inline-flex items-center gap-1.5 text-[15px] font-medium',
           isDark ? 'text-[#2997ff]' : 'text-[var(--color-link)]'
         )}
       >

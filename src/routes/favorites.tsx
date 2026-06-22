@@ -11,12 +11,12 @@ export default function Favorites() {
   return (
     <div className="min-h-screen">
       {/* 标题区 */}
-      <section className="bg-[#f5f5f7] py-16 md:py-20">
-        <div className="max-w-[1024px] mx-auto px-5 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#1d1d1f] mb-3">
+      <section className="bg-[#f5f5f7] py-20 md:py-24">
+        <div className="max-w-[1080px] mx-auto px-4 md:px-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#1d1d1f] mb-4">
             我的收藏
           </h1>
-          <p className="text-lg md:text-xl text-[#6e6e73]">
+          <p className="text-lg md:text-xl text-[#6e6e73] leading-relaxed">
             {favorites.length > 0
               ? `你收藏了 ${favorites.length} 个 AI 工具`
               : '收藏你喜欢的 AI 工具，方便随时查看'}
@@ -25,12 +25,12 @@ export default function Favorites() {
       </section>
 
       {/* 收藏列表 */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-[1024px] mx-auto px-5">
+      <section className="py-16 md:py-20">
+        <div className="max-w-[1080px] mx-auto px-4 md:px-6">
           {favorites.length > 0 ? (
             <ToolGrid tools={favoritedTools} columns={3} />
           ) : (
-            <div className="text-center py-20">
+            <div className="text-center py-24">
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#f5f5f7] flex items-center justify-center">
                 <Heart size={36} className="text-[#86868b]" />
               </div>

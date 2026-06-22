@@ -17,9 +17,9 @@ export default function ToolCard({ tool }: ToolCardProps) {
   return (
     <Link
       to={`/tool/${tool.id}`}
-      className="group block bg-white border border-black/5 rounded-[var(--radius-lg)] p-5 card-hover hover:no-underline"
+      className="group block text-left bg-white border border-black/[0.04] rounded-[var(--radius-lg)] p-6 card-hover hover:no-underline"
     >
-      <div className="flex items-start justify-between mb-4">
+      <div className="flex items-start justify-between mb-5">
         <ToolLogo logo={tool.logo} background={tool.logoBackground} size="md" />
         <FavoriteButton
           isFavorited={isFavorited}
@@ -28,10 +28,10 @@ export default function ToolCard({ tool }: ToolCardProps) {
         />
       </div>
 
-      <h3 className="text-lg font-semibold text-[#1d1d1f] mb-1 tracking-tight">
+      <h3 className="text-[17px] font-semibold text-[#1d1d1f] mb-1.5 tracking-tight leading-snug">
         {tool.name}
       </h3>
-      <p className="text-sm text-[#6e6e73] mb-3 line-clamp-2 leading-relaxed">
+      <p className="text-[14px] text-[#6e6e73] mb-5 line-clamp-2 leading-[1.43]">
         {tool.tagline}
       </p>
 

@@ -21,7 +21,7 @@ export default function ToolDetail() {
 
   if (!tool) {
     return (
-      <div className="max-w-[744px] mx-auto px-5 py-32 text-center">
+      <div className="max-w-[744px] mx-auto px-4 md:px-6 py-32 text-center">
         <h1 className="text-3xl font-bold text-[#1d1d1f] mb-4">
           工具未找到
         </h1>
@@ -41,7 +41,7 @@ export default function ToolDetail() {
   return (
     <div className="min-h-screen">
       {/* 返回按钮 */}
-      <div className="max-w-[744px] mx-auto px-5 pt-8">
+      <div className="max-w-[744px] mx-auto px-4 md:px-6 pt-10">
         <Link
           to={category ? `/category/${category.id}` : '/category'}
           className="inline-flex items-center gap-1 text-sm text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
@@ -52,10 +52,10 @@ export default function ToolDetail() {
       </div>
 
       {/* 工具信息卡片 */}
-      <section className="py-8">
-        <div className="max-w-[744px] mx-auto px-5">
-          <div className="bg-[#f5f5f7] rounded-[var(--radius-xl)] p-8 md:p-10">
-            <div className="flex items-start justify-between mb-6">
+      <section className="py-10 md:py-12">
+        <div className="max-w-[744px] mx-auto px-4 md:px-6">
+          <div className="bg-[#f5f5f7] rounded-[var(--radius-xl)] p-8 md:p-12">
+            <div className="flex items-start justify-between mb-7">
               <ToolLogo
                 logo={tool.logo}
                 background={tool.logoBackground}
@@ -68,14 +68,14 @@ export default function ToolDetail() {
               />
             </div>
 
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-[#1d1d1f] mb-2">
+            <h1 className="text-3xl md:text-[40px] font-bold tracking-tight text-[#1d1d1f] mb-3 leading-tight">
               {tool.name}
             </h1>
-            <p className="text-lg md:text-xl text-[#6e6e73] mb-6">
+            <p className="text-lg md:text-xl text-[#6e6e73] mb-7 leading-relaxed">
               {tool.tagline}
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 mb-6">
+            <div className="flex flex-wrap items-center gap-3 mb-7">
               <Button href={tool.website} variant="primary" size="md">
                 访问官网
                 <ExternalLink size={15} />
@@ -105,12 +105,12 @@ export default function ToolDetail() {
       </section>
 
       {/* 详细描述 */}
-      <section className="py-8">
-        <div className="max-w-[744px] mx-auto px-5">
-          <h2 className="text-2xl font-semibold tracking-tight text-[#1d1d1f] mb-4">
+      <section className="py-10 md:py-12">
+        <div className="max-w-[744px] mx-auto px-4 md:px-6">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-5">
             关于
           </h2>
-          <p className="text-[17px] text-[#424245] leading-relaxed mb-4">
+          <p className="text-[17px] text-[#424245] leading-relaxed mb-5">
             {tool.description}
           </p>
           {tool.longDescription && (
@@ -123,16 +123,16 @@ export default function ToolDetail() {
 
       {/* 核心特性 */}
       {tool.features.length > 0 && (
-        <section className="py-8">
-          <div className="max-w-[744px] mx-auto px-5">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#1d1d1f] mb-6">
+        <section className="py-10 md:py-12">
+          <div className="max-w-[744px] mx-auto px-4 md:px-6">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-7">
               核心特性
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {tool.features.map((feature) => (
                 <div
                   key={feature}
-                  className="flex items-center gap-3 bg-[#f5f5f7] rounded-[var(--radius-md)] p-4"
+                  className="flex items-center gap-3 bg-[#f5f5f7] rounded-[var(--radius-md)] p-5"
                 >
                   <div className="w-6 h-6 rounded-full bg-[#30d158]/15 flex items-center justify-center flex-shrink-0">
                     <Check size={14} color="#30d158" strokeWidth={3} />
@@ -147,9 +147,9 @@ export default function ToolDetail() {
 
       {/* 相关工具 */}
       {relatedTools.length > 0 && (
-        <section className="py-12 md:py-16">
-          <div className="max-w-[1024px] mx-auto px-5">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-6">
+        <section className="py-16 md:py-24">
+          <div className="max-w-[1080px] mx-auto px-4 md:px-6">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-8">
               相关工具
             </h2>
             <ToolGrid tools={relatedTools} columns={3} />

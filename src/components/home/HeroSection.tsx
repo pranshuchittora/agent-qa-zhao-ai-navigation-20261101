@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
-import Button from '@/components/ui/Button';
 import { heroConfig } from '@/data/featured';
 
 export default function HeroSection() {
@@ -15,8 +14,20 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#f5f5f7] to-white">
-      <div className="max-w-[1080px] mx-auto px-4 md:px-6 pt-24 pb-20 md:pt-36 md:pb-28 text-center">
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(to bottom, #f5f5f7 0%, #ffffff 100%)',
+      }}
+    >
+      {/* 装饰性渐变背景 */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,113,227,0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 90% 80%, rgba(175,82,222,0.05) 0%, transparent 50%), radial-gradient(ellipse 50% 40% at 5% 70%, rgba(48,209,88,0.04) 0%, transparent 50%)',
+        }}
+      />
+      <div className="relative max-w-[1080px] mx-auto px-4 md:px-6 pt-24 pb-20 md:pt-36 md:pb-28 text-center">
         {/* 标题 */}
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[#1d1d1f] mb-5">
           {heroConfig.title}
@@ -28,7 +39,7 @@ export default function HeroSection() {
         </p>
 
         {/* 搜索框 */}
-        <div className="max-w-xl mx-auto mb-10">
+        <div className="max-w-xl mx-auto">
           <div className="relative">
             <Search
               className="absolute left-4 top-1/2 -translate-y-1/2 text-[#86868b]"
@@ -45,15 +56,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* CTA 按钮 */}
-        <div className="flex items-center justify-center gap-4">
-          <Button to={heroConfig.primaryCta.to} variant="primary" size="md">
-            {heroConfig.primaryCta.label}
-          </Button>
-          <Button to={heroConfig.secondaryCta.to} variant="secondary" size="md">
-            {heroConfig.secondaryCta.label}
-          </Button>
-        </div>
       </div>
     </section>
   );

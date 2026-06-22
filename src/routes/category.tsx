@@ -20,8 +20,20 @@ export default function CategoryPage() {
   return (
     <div className="min-h-screen">
       {/* 标题区 */}
-      <section className="bg-[#f5f5f7] py-20 md:py-24">
-        <div className="max-w-[1080px] mx-auto px-4 md:px-6">
+      <section
+        className="relative overflow-hidden py-20 md:py-24"
+        style={{
+          background: 'linear-gradient(to bottom, #f5f5f7 0%, #ffffff 100%)',
+        }}
+      >
+        {/* 装饰性渐变背景 */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 80% 60% at 80% 0%, rgba(0,113,227,0.06) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 10% 90%, rgba(175,82,222,0.05) 0%, transparent 50%)',
+          }}
+        />
+        <div className="relative max-w-[1080px] mx-auto px-4 md:px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#1d1d1f] mb-4">
             {category ? category.name : '全部分类'}
           </h1>

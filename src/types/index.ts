@@ -27,7 +27,7 @@ export interface AITool {
   pricing: PricingType;
   features: string[];
   rating?: number;
-  isFeatured: boolean;
+  isFeatured?: boolean;
   isPopular: boolean;
   launchDate?: string;
   order: number;

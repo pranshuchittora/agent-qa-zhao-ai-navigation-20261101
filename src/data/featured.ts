@@ -4,8 +4,6 @@
 export const heroConfig = {
   title: 'AI 工具导航',
   subtitle: '发现并探索最好的 AI 工具，一站式探索人工智能的无限可能。',
-  primaryCta: { label: '浏览分类', to: '/category' },
-  secondaryCta: { label: '开始探索', to: '/search' },
 };
 
 /** 首页精选大卡片配置（交替深色/浅色背景） */

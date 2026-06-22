@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router';
 import {
-  ChevronLeft, ExternalLink, Image, ImageIcon, Video, Music, Mic,
+  ChevronLeft, ExternalLink, Image, ImageIcon, Film, Music, Mic,
   Code2, MessageSquare, Search, Globe, FileText, Eye, Brain, Palette,
   User, Shield, Sparkles, Cpu, Zap, Layers, PenTool, Type, Wand2,
   Maximize2, DollarSign, Scissors, Users, Play, Radio, Settings,
@@ -21,15 +21,15 @@ const FEATURE_ICON_MAP: [string[], LucideIcon][] = [
   [['文生图'], Image],
   [['图生图', '变体'], ImageIcon],
   // 视频
-  [['视频', '帧'], Video],
+  [['文生视频'], Film],
   // 音乐
-  [['歌曲', '音乐'], Music],
+  [['歌曲'], Music],
   // 语音
   [['语音', '人声', '说话'], Mic],
   // 代码
   [['代码', '调试', '编程'], Code2],
   // 对话
-  [['对话', '聊天', '自然语言'], MessageSquare],
+  [['对话', '聊天', '自然语言', '自定义'], MessageSquare],
   // 搜索
   [['搜索', '联网', '网络搜索'], Search],
   // 集成/生态
@@ -37,15 +37,17 @@ const FEATURE_ICON_MAP: [string[], LucideIcon][] = [
   // 文档
   [['文档', '文件', '上传'], FileText],
   // 识别/视觉
-  [['识别', '图像识别', '视觉'], Eye],
+  [['识别', '图像识别', '视觉', '预览'], Eye],
   // 推理/智能
-  [['推理', '理解', '多模态', '智能'], Brain],
+  [['推理', '理解', '多模态', '智能', '上下文'], Brain],
   // 风格/调色
   [['风格', '调色'], Palette],
   // 一致性/角色
   [['一致性', '角色'], User],
   // 安全
   [['安全', '对齐', '隐私'], Shield],
+  // 数学/求解
+  [['数学', '求解'], Cpu],
   // 部署/开源
   [['部署', '开源', '本地'], Cpu],
   // 速度/性能
@@ -53,7 +55,7 @@ const FEATURE_ICON_MAP: [string[], LucideIcon][] = [
   // 批量/多
   [['批量', '多种', '多语言', '多分辨率', '画幅'], Layers],
   // 写作
-  [['写作', '文案', '创作'], PenTool],
+  [['写作', '文案', '创作', '歌词'], PenTool],
   // 文字渲染
   [['文字渲染', '文字'], Type],
   // 编辑/修改
@@ -63,11 +65,11 @@ const FEATURE_ICON_MAP: [string[], LucideIcon][] = [
   // 价格
   [['价格', '低价', '免费', 'API'], DollarSign],
   // 微调/控制
-  [['微调', 'ControlNet', '控制', '定制', '语调'], Settings],
+  [['微调', 'ControlNet', '控制', '定制', '语调', '情感'], Settings],
   // 裁剪/选择
   [['裁剪', '选择', '区域'], Scissors],
   // 协作
-  [['协作', '团队'], Users],
+  [['协作', '团队', '克隆'], Users],
   // 音频
   [['音频', '声音'], Radio],
   // 运动/动画
@@ -218,12 +220,12 @@ export default function ToolDetail() {
 
       {/* 相关工具 */}
       {relatedTools.length > 0 && (
-        <section className="py-16 md:py-24">
-          <div className="max-w-[1080px] mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-8">
+        <section className="py-10 md:py-12">
+          <div className="max-w-[744px] mx-auto px-4 md:px-6">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-[#1d1d1f] mb-7">
               相关工具
             </h2>
-            <ToolGrid tools={relatedTools} columns={3} />
+            <ToolGrid tools={relatedTools} columns={2} />
           </div>
         </section>
       )}

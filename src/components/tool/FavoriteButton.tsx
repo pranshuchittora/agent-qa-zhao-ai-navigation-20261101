@@ -41,15 +41,15 @@ export default function FavoriteButton({
       <AnimatePresence mode="wait">
         <motion.div
           key={isFavorited ? 'filled' : 'outline'}
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          exit={{ scale: 0.8 }}
-          transition={{ duration: 0.15 }}
+          initial={{ scale: 0.6, opacity: 0.5 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.6, opacity: 0.5 }}
+          transition={{ type: 'spring', stiffness: 500, damping: 20 }}
         >
           <Heart
             size={iconSize[size]}
-            fill={isFavorited ? '#0071e3' : 'none'}
-            color={isFavorited ? '#0071e3' : '#86868b'}
+            fill={isFavorited ? '#ff3b30' : 'none'}
+            color={isFavorited ? '#ff3b30' : '#86868b'}
             strokeWidth={2}
           />
         </motion.div>

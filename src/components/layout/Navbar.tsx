@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router';
 import { Search, Heart, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useFavoritesStore } from '@/store/favoritesStore';
 
 export default function Navbar() {
-  const scrollY = useScrollPosition();
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,7 +17,6 @@ export default function Navbar() {
   const navLinks = [
     { label: '首页', to: '/' },
     { label: '分类', to: '/category' },
-    { label: '收藏', to: '/favorites' },
   ];
 
   const isActive = (path: string) => {
@@ -36,12 +34,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrollY > 10 ? 'glass-nav' : 'bg-transparent'
-        )}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
         <nav className="max-w-[1024px] mx-auto px-5 h-12 flex items-center justify-between">
           {/* Logo */}
           <Link
@@ -72,23 +65,38 @@ export default function Navbar() {
 
           {/* 右侧操作 */}
           <div className="flex items-center gap-4">
-            {/* 收藏图标（带计数） */}
+            {/* 收藏图标（带计数角标） */}
             <Link
               to="/favorites"
               className="relative text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
+              aria-label={favoritesCount > 0 ? `我的收藏（${favoritesCount} 个）` : '我的收藏'}
             >
-              <Heart size={18} fill={favoritesCount > 0 ? '#0071e3' : 'none'} color={favoritesCount > 0 ? '#0071e3' : 'currentColor'} />
-              {favoritesCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#0071e3] text-white text-[10px] flex items-center justify-center font-medium">
-                  {favoritesCount}
-                </span>
-              )}
+              <Heart
+                size={18}
+                fill={favoritesCount > 0 ? '#ff3b30' : 'none'}
+                color={favoritesCount > 0 ? '#ff3b30' : 'currentColor'}
+              />
+              <AnimatePresence>
+                {favoritesCount > 0 && (
+                  <motion.span
+                    key="badge"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+                    className="absolute -top-1.5 -right-2 min-w-[16px] h-4 rounded-full bg-[#ff3b30] text-white text-[10px] flex items-center justify-center font-medium px-1"
+                  >
+                    {favoritesCount}
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </Link>
 
             {/* 搜索图标 */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
+              aria-label="搜索"
             >
               <Search size={18} />
             </button>
@@ -97,6 +105,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
+              aria-label={mobileMenuOpen ? '关闭菜单' : '打开菜单'}
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -105,7 +114,10 @@ export default function Navbar() {
 
         {/* 搜索展开区域 */}
         {searchOpen && (
-          <div className="border-t border-black/5 bg-white/80 backdrop-blur-xl">
+          <div
+            className="border-t border-black/[0.06] bg-white/60 backdrop-blur-xl"
+            style={{ WebkitBackdropFilter: 'blur(24px)' }}
+          >
             <div className="max-w-[1024px] mx-auto px-5 py-3">
               <div className="relative">
                 <Search

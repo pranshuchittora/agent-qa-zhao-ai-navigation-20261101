@@ -375,6 +375,23 @@ export const tools: AITool[] = [
     order: 5,
   },
 
+  {
+    id: 'agent-qa',
+    name: 'agent-qa',
+    tagline: '具备持久记忆与自我改进能力的自然语言测试工具',
+    description: '开源的 Web 与移动端自然语言测试 CLI，具备 memidex 持久记忆、经验证的自我改进能力和可审查的测试证据。CLI 免费，模型与基础设施费用另计。',
+    longDescription: 'agent-qa 让开发者用自然语言描述 Web 与移动端测试任务，通过 memidex 持久记忆复用测试经验，并支持经验证的自我改进。它提供可审查的测试证据，可通过 CLI 与 MCP 集成到开发工作流。CLI 免费使用，需要配置模型和浏览器或设备环境，相关模型与基础设施费用另计。',
+    logo: '🧪',
+    logoBackground: '#1d1f21',
+    website: 'https://vostride.com',
+    categoryId: 'code-assistant',
+    tags: ['CLI', '自然语言测试', 'memidex', 'MCP'],
+    pricing: 'free',
+    features: ['Web 与移动端测试', '自然语言测试任务', 'memidex 持久记忆', '经验证的自我改进', '可审查的测试证据', 'CLI 与 MCP 集成'],
+    isPopular: false,
+    order: 6,
+  },
+
   // ==================== 效率工具 ====================
   {
     id: 'notion-ai',
